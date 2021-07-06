@@ -13,17 +13,15 @@ const books = [
   { title: 'Guerre et Paix', id: 748147, rented: 19 }
 ];
 
-const titles = (bookList) => {
-  bookList.forEach(book => {
-    console.log(book.title);
-  });
+const titles = (book) => {
+  console.log(book.title);
 };
 
 const borrowedOnce = (book) => book.rented > 1;
 
 const mostBorrowed = (bookList) => {
   let mostBorrowedBook = {title: '', rented: 0};
-  bookList.forEach(book => {
+  bookList.map(book => {
     if (book.rented > mostBorrowedBook.rented) {
       mostBorrowedBook = book
     };
@@ -33,7 +31,7 @@ const mostBorrowed = (bookList) => {
 
 const leastBorrowed = (bookList) => {
   let leastBorrowedBook = {title: '', rented: 100};
-  bookList.forEach(book => {
+  bookList.map(book => {
     if (book.rented < leastBorrowedBook.rented) {
       leastBorrowedBook = book
     };
@@ -47,7 +45,7 @@ const deleteBook = (bookList, id) => {
 };
 
 console.log('Question 1 :');
-titles(books);
+books.map(book => titles(book));
 console.log();
 console.log('Question 2 :');
 console.log(books.every(borrowedOnce));
@@ -60,4 +58,4 @@ console.log(leastBorrowed(books));
 console.log();
 console.log('Question 5 :');
 deleteBook(books, 133712);
-titles(books)
+books.map(book => titles(book));
