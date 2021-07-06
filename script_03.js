@@ -6202,7 +6202,7 @@ const users = [
   
 const averageRevenue = (userList) => {
   let totalRevenue = 0;
-  userList.forEach(user => {
+  userList.map(user => {
     totalRevenue += user.revenue;
   });
   return ((totalRevenue / userList.length) / 100).toFixed(2) + " €";
@@ -6221,7 +6221,7 @@ const averageRevenuePaying = (userList) => {
 
 const totalEarned = (userList) => {
   let total = 0;
-  userList.forEach(user => {
+  userList.map(user => {
     total += user.revenue;
   });
   return (total / 100).toFixed(2) + " €";
@@ -6237,7 +6237,7 @@ const payingUsersInCountry = (userList, country) => {
 };
 
 const totalBySpecCountry = (userList, countries) => {
-  countries.forEach(country => {
+  countries.map(country => {
     let usersArray = usersInCountry(userList, country);
     console.log(country + ": ");
     console.log(totalEarned(usersArray));
@@ -6247,7 +6247,7 @@ const totalBySpecCountry = (userList, countries) => {
 const countrieWhereMoneyEarned = (userList) => {
   let countries = [];
   let payingUsers = userList.filter(user => user.revenue > 0);
-  payingUsers.forEach(user => {
+  payingUsers.map(user => {
     if (!countries.includes(user.country)){
       countries.push(user.country);
     };
