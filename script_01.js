@@ -21,19 +21,13 @@ const entrepreneurs = [
   
 const currentYear = 2021;
 
-const newArray = (inputArray) => {
-  let outputArray = [];
-  inputArray.forEach(person =>{
-    outputArray.push(
-      { firstName: person.first, lastName: person.last, age: currentYear - person.year}
-    );
-  });
-  return outputArray;
+const newPerson = (person) => {
+    return { firstName: person.first, lastName: person.last, age: currentYear - person.year}
 };
 
 const output70 = entrepreneurs.filter(person => person.year >= 1970 && person.year < 1980 );
 
 console.log("Question 1 :");
-console.log(newArray(entrepreneurs));
+console.log(entrepreneurs.map(person => newPerson(person)));
 console.log("Question 2 :");
-console.log(newArray(output70));
+console.log(output70.map(person => newPerson(person)));
